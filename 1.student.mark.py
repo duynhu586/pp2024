@@ -55,7 +55,7 @@ def listCourse():
 # Select a course, input marks for student in this course
 def markStd():
     print("------------------------")
-    print("choose courses to mark...")
+    print("choose courses to mark(1,2,3,..)")
     listCourse()
     x = int(input())
     NameCourses = courses[x-1]["name"]
@@ -67,7 +67,7 @@ def markStd():
 # Show student marks for a given course
 def showMark():
     print("------------------------")
-    print("Choose courses to see mark...")
+    print("choose courses to mark(1,2,3,..)")
     listCourse()
     x = int(input())
     NameCourses = courses[x-1]["name"]
