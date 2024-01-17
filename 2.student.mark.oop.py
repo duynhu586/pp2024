@@ -76,13 +76,18 @@ class studentMana:
 
     def listCourses(self):
         print("List of courses:")
-        for course in self.__courses:
-            print(course)
+        for i in range(0,Number_Std,1):
+            name = self.__courses[i].getName()
+            Id = self.__courses[i].getId()
+            print("name: " + name + " id: " + Id)
     
     def listStudents(self):
         print("List of students:")
-        for student in self.__students:
-            print(student)
+        for i in range(0,Number_Std,1):
+            name = self.__students[i].getName()
+            Id = self.__students[i].getId()
+            Dob = self.__students[i].getDob()
+            print("name: " + name + " id: " + Id + " dob: " + Dob)
 
     def setMark(self,i,x,Mark):
         self.__students[i].setMark(x,Mark)
@@ -132,17 +137,17 @@ def setCourseInfo(studentMana):
 
 # List students
 def listStudent(studentMana):
-    studentMana.listStudents
+    studentMana.listStudents()
 
 # List courses 
 def listCourse(studentMana):
-    studentMana.listCourses
+    studentMana.listCourses()
 
 # Select a course, input marks for student in this course
 def markStd(studentMana):
     print("------------------------")
-    print("choose courses ID to mark...")
     listCourse(studentMana)
+    print("choose courses ID to mark...")
     x = int(input())
     
     for i in range(0,Number_Std,1):
@@ -153,8 +158,8 @@ def markStd(studentMana):
 # Show student marks for a given course
 def showMark(studentMana):
     print("------------------------")
-    print("Choose courses ID to see mark...")
     listCourse(studentMana)
+    print("Choose courses ID to see mark...")
     x = int(input())
     studentMana.showMark(x)
 
@@ -196,7 +201,7 @@ while True:
         showMark(class1)
     elif i == 9:
         exit()
-    else: print('Invalid choice. Please enter a number between 1 and 9.')
+#     else: print('Invalid choice. Please enter a number between 1 and 9.')
 
 # class1 = studentMana()
 # Number_Std = setNumberOfStudent()
