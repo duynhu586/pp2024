@@ -1,6 +1,3 @@
-Number_Std = 0
-Number_courses = 0
-
 class student:
     def __init__(self,__id,__name,__Dob):
         self.__id = __id
@@ -66,7 +63,20 @@ class studentMana:
     def __init__(self):
         self.__students = []
         self.__courses = []
+        self.__NumberStd = 0
+        self.__NumberCourses = 0
 
+    def setNumberStd(self, numberStd):
+        self.__NumberStd = numberStd
+
+    def setNumberCourses(self,numberCourses):
+        self.__NumberCourses = numberCourses
+
+    def getStdNumber(self):
+        return self.__NumberStd
+    
+    def getCoursesNumber(self):
+        return self.__NumberCourses
 
     def addStudent(self, student):
         self.__students.append(student)
@@ -76,14 +86,14 @@ class studentMana:
 
     def listCourses(self):
         print("List of courses:")
-        for i in range(0,Number_Std,1):
+        for i in range(0,int(self.getCoursesNumber()),1):
             name = self.__courses[i].getName()
             Id = self.__courses[i].getId()
             print("name: " + name + " id: " + Id)
     
     def listStudents(self):
         print("List of students:")
-        for i in range(0,Number_Std,1):
+        for i in range(0,int(self.getStdNumber()),1):
             name = self.__students[i].getName()
             Id = self.__students[i].getId()
             Dob = self.__students[i].getDob()
@@ -101,22 +111,20 @@ class studentMana:
                 print(f"{name}: {mark}")
 
 #Input number of students in a class
-def  setNumberOfStudent():   
+def  setNumberOfStudent(studentMana):   
     x = input("enter number of students: ")
     print("number of students in class " + x)
-    x = int(x)
-    return x
+    studentMana.setNumberStd(x)
 
 # Input number of courses
-def  setNumberOfCourses():   
+def  setNumberOfCourses(studentMana):   
     x = input("enter number of Courses: ")
     print("number of courses in class " + x)
-    x = int(x)
-    return x
+    studentMana.setNumberCourses(x)
 
 #Input student information: id,name,DoB
 def setStdInfo(studentMana):
-    for i in range(0,Number_Std,1):
+    for i in range(0,int(studentMana.getStdNumber()),1):
         n = str(i + 1)
         print("Student " + n)
         id = input("Enter student ID: ")
@@ -127,7 +135,7 @@ def setStdInfo(studentMana):
 
 # Input course information: id,name
 def setCourseInfo(studentMana):
-    for i in range(0,Number_courses,1):
+    for i in range(0,int(studentMana.getCoursesNumber()),1):
         n = str(i + 1)
         print("course " + n)
         id = input("Enter courses ID: ")
@@ -150,7 +158,7 @@ def markStd(studentMana):
     print("choose courses ID to mark...")
     x = int(input())
     
-    for i in range(0,Number_Std,1):
+    for i in range(0,int(studentMana.getStdNumber()),1):
         n = i + 1
         Mark = input("Enter mark of student " + str(n)+ " ")
         studentMana.setMark(i,x,Mark)
@@ -184,11 +192,11 @@ while True:
     except:
             print('Wrong input. Please enter a number ...')
     if i == 1:
-        Number_Std = setNumberOfStudent()
+        Number_Std = setNumberOfStudent(class1)
     elif i == 2:
         setStdInfo(class1)
     elif i == 3:
-        Number_courses = setNumberOfCourses()
+        Number_courses = setNumberOfCourses(class1)
     elif i == 4:
         setCourseInfo(class1)
     elif i == 5:
@@ -204,10 +212,10 @@ while True:
     else: print('Invalid choice. Please enter a number between 1 and 9.')
 
 # class1 = studentMana()
-# Number_Std = setNumberOfStudent()
+# Number_Std = setNumberOfStudent(class1)
 # setStdInfo(class1)
 # listStudent(class1)
-# Number_courses = setNumberOfCourses()
+# Number_courses = setNumberOfCourses(class1)
 # print(Number_courses)
 # setCourseInfo(class1)
 # listCourse(class1)
