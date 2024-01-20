@@ -201,7 +201,7 @@ while True:
         showMark(class1)
     elif i == 9:
         exit()
-#     else: print('Invalid choice. Please enter a number between 1 and 9.')
+    else: print('Invalid choice. Please enter a number between 1 and 9.')
 
 # class1 = studentMana()
 # Number_Std = setNumberOfStudent()
