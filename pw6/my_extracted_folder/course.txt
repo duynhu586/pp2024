@@ -1,0 +1,2 @@
+course: 1 id: 1 name: ads weight: 3
+course: 2 id: 2 name: as weight: 1
